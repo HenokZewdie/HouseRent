@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="base :: head" >
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="base :: nav"></nav>
+<div class="container">
+    <br/><br/>
+    <table class="table table-striped">
+        <tr>
+            <th>Owner Name</th>
+            <th>City</th>
+        </tr>
+        <tr th:each="house : ${house}">
+            <td th:text="${house.ownerName}"></td>
+            <td th:text="${house.city}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
