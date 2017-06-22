@@ -13,17 +13,40 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<div class="container">
 <h1>House Rent Broker</h1>
 <form action="#" th:action="@{/home}" th:object="${house}" method="post">
-    <p>Owner Name: <input type="text" th:field="*{ownerName}" /></p>
-    <p>Address: <input type="text" th:field="*{address}" /></p>
-    <p>City: <input type="text" th:field="*{city}" /></p>
-    <p>State: <input type="text" th:field="*{state}" /></p>
-    <p>Price: <input type="text" th:field="*{price}" /></p>
-    <p>Phone: <input type="text" th:field="*{phone}" /></p>
-    <p>Status: <input type="text" th:field="*{status}" /></p>
+    <div class="form-group">
+        <label for="ownerName">ownerName</label>
+        <input type="text" th:field="*{ownerName}" class="form-control" id="ownerName" placeholder="ownerName" />
+    </div>
+    <div class="form-group">
+        <label for="address">address</label>
+        <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="address" />
+    </div>
+    <div class="form-group">
+        <label for="city">city</label>
+        <input type="text" th:field="*{city}" class="form-control" id="city" placeholder="city" />
+    </div>
+    <div class="form-group">
+        <label for="state">state</label>
+        <input type="text" th:field="*{state}" class="form-control" id="state" placeholder="state" />
+    </div>
+    <div class="form-group">
+        <label for="price">price</label>
+        <input type="text" th:field="*{price}" class="form-control" id="price" placeholder="price" />
+    </div>
+    <div class="form-group">
+        <label for="phone">phone</label>
+        <input type="text" th:field="*{phone}" class="form-control" id="phone" placeholder="phone" />
+    </div>
+    <div class="form-group">
+        <label for="status">status</label>
+        <input type="text" th:field="*{status}" class="form-control" id="status" placeholder="status" />
+    </div>
 
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <button type="submit" class="btn btn-default">Submit</button>
 </form>
+</div>
 </body>
 </html>
