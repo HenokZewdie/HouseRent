@@ -12,9 +12,13 @@ import java.util.Iterator;
 
 @Controller
 public class HouseController {
-    String name;
+    String name, adrew;
     @Autowired
     HouseRepository houseRepository;
+
+  //  HttpServletRequest request=null;
+//    HttpSession session = request.getSession();
+
 
     @RequestMapping(value = "/home", method = RequestMethod.GET) //@GetRequest
     public String getIt(Model model){
@@ -27,6 +31,7 @@ public class HouseController {
     @RequestMapping(value = "/home", method = RequestMethod.POST)
     public String ProcessHouse(@ModelAttribute House house){
         name = house.getOwnerName();
+        adrew = house.getAddress();
         System.out.println(name);
         houseRepository.save(house);
         return "redirect:/display";
@@ -34,7 +39,8 @@ public class HouseController {
 
     @RequestMapping(value = "/display", method = RequestMethod.GET)
     public String toSend(@ModelAttribute House house, Model model){
-        Iterable<House> values = houseRepository.findByOwnerName(name);
+        //Iterable<House> values = houseRepository.findByOwnerName(name);
+        Iterable<House> values = houseRepository.findByAddress(adrew);
         System.out.println("jsfh");
         model.addAttribute("values", values);
 
