@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="newMain :: head">
     <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
-
+<div class="container">
+<nav th:replace="newMain :: navi"></nav>
  <table class="table table-hover" border="1">
 
     <tr>
@@ -13,9 +14,14 @@
         <th>Address</th>
         <th>City</th>
         <th>State</th>
+        <th>Type</th>
+        <th>Bathroom</th>
+        <th>Kitchen</th>
+        <th>Duration</th>
         <th>Price</th>
         <th>Phone</th>
         <th>Status</th>
+        <th>Date</th>
 
     </tr>
     <div th:each="test : ${values}">
@@ -25,14 +31,38 @@
             <td th:text = "${test.address}"></td>
             <td><p th:text = "${test.city}"></p></td>
             <td th:text = "${test.state}"></td>
+            <td th:text = "${test.type}"></td>
+            <td th:text = "${test.bath}"></td>
+            <td th:text = "${test.kitchen}"></td>
+            <td th:text = "${test.duration}"></td>
             <td><p th:text = "${test.price}"></p></td>
             <td th:text = "${test.phone}"></td>
             <td><p th:text = "${test.status}"></p></td>
+            <td th:text = "${#dates.format(test.date, 'MMM-dd-yyyy')}"></td>
 
             <!--<td th:text = "${#dates.format(mylink.date, 'MMM-dd-yyyy')}"></td>  #dates.format(sprint.releaseDate, 'dd-MMM-yyyy')-->
         </tr>
     </div>
-</table>
 
+     <div th:each="test : ${showEm}">
+
+         <tr>
+             <td><p th:text = "${test.ownerName}"></p></td>
+             <td th:text = "${test.address}"></td>
+             <td><p th:text = "${test.city}"></p></td>
+             <td th:text = "${test.state}"></td>
+             <td th:text = "${test.type}"></td>
+             <td th:text = "${test.bath}"></td>
+             <td th:text = "${test.kitchen}"></td>
+             <td th:text = "${test.duration}"></td>
+             <td><p th:text = "${test.price}"></p></td>
+             <td th:text = "${test.phone}"></td>
+             <td><p th:text = "${test.status}"></p></td>
+             <td th:text = "${#dates.format(test.date, 'MMM-dd-yyyy')}"></td>
+
+         </tr>
+     </div>
+</table>
+</div>
 </body>
 </html>

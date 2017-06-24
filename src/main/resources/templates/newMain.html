@@ -12,6 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="container">
 <nav class="navbar navbar-default" th:fragment="navi">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -22,15 +23,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Mini Reddit</a>
+            <a class="navbar-brand" href="/">Home</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <li><a href="add">Add Link</a></li>
-
+                <li><a href="home">Register</a></li>
+                <li><a href="displayAll">Show House</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -40,20 +41,6 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<table class="table table-hover">
-    <tr>
-        <th>Link</th>
-        <th><a href ="user">User</a></th>
-        <th><a href ="date">Date</a></th>
-    </tr>
-    <div th:each="mylink : ${values}">
-        <tr>
-            <td><p th:text = "${mylink.title}"></p>
-                <a th:text = "${mylink.link}" th:href="@{${mylink.link}}"></a></td>
-            <td th:text = "${mylink.userName}"></td>
-            <td th:text = "${#dates.format(mylink.date, 'MMM-dd-yyyy')}"></td>  <!-- #dates.format(sprint.releaseDate, 'dd-MMM-yyyy')-->
-        </tr>
-    </div>
-</table>
+</div>
 </body>
 </html>
